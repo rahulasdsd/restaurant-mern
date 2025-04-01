@@ -9,14 +9,14 @@ function About() {
 
   // Fetch dishes
   useEffect(() => {
-    axios.get('http://localhost:3000/api/dishes')
+    axios.get('https://restaurant-mern-1-backend.onrender.com/api/dishes')
       .then(res => setDishes(res.data))
       .catch(err => console.log(err));
   }, []);
 
   // Add dish
   const addDish = () => {
-    axios.post('http://localhost:3000/api/dishes', newDish)
+    axios.post('https://restaurant-mern-1-backend.onrender.com/api/dishes', newDish)
       .then(res => setDishes([...dishes, res.data]))
       .catch(err => console.log(err));
     setNewDish({ name: '', price: '', description: '' });
@@ -24,7 +24,7 @@ function About() {
 
   // Delete dish
   const deleteDish = (id) => {
-    axios.delete(`http://localhost:3000/api/dishes/${id}`)
+    axios.delete(`https://restaurant-mern-1-backend.onrender.com/api/dishes/${id}`)
       .then(() => setDishes(dishes.filter(dish => dish._id !== id)))
       .catch(err => console.log(err));
   };
