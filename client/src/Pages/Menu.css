@@ -1,0 +1,12 @@
+.background-container-Menu {
+    background-image: url('https://img.freepik.com/free-photo/frme-ingredients-green-smoothie-vegetables-fruits-fresh-salad-white-background-top-view_127032-2340.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    
+    justify-content: center;
+   
+    text-align: center;
+    
+  }

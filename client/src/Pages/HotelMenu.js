@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css';
-import Navbar from './Navbar';
+import './Menu.css';
 
-function Order() {
+
+function HotelMenu() {
   const [dishes, setDishes] = useState([]);
   const [newDish, setNewDish] = useState({ name: '', price: '', description: '' });
 
   // Fetch dishes
   useEffect(() => {
-    axios.get('http://localhost:5000/api/dishes')
+    axios.get('http://localhost:3000/api/dishes')
       .then(res => setDishes(res.data))
       .catch(err => console.log(err));
   }, []);
 
   // Add dish
   const addDish = () => {
-    axios.post('http://localhost:5000/api/dishes', newDish)
+    axios.post('http://localhost:3000/api/dishes', newDish)
       .then(res => setDishes([...dishes, res.data]))
       .catch(err => console.log(err));
     setNewDish({ name: '', price: '', description: '' });
@@ -24,13 +24,13 @@ function Order() {
 
   // Delete dish
   const deleteDish = (id) => {
-    axios.delete(`http://localhost:5000/api/dishes/${id}`)
+    axios.delete(`http://localhost:3000/api/dishes/${id}`)
       .then(() => setDishes(dishes.filter(dish => dish._id !== id)))
       .catch(err => console.log(err));
   };
 
   return (
-    <div className="Order">
+    <div className="background-container-Menu">
       
       <h1>Restaurant Menu</h1>
       <div>
@@ -63,4 +63,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default HotelMenu;
