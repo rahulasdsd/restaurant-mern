@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://contact:rahul123@contactclustor.zgusw.mongodb.net/ContactUs?retryWrites=true&w=majority&appName=contactclustor/rahul', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/rahul', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.log(err));
 
